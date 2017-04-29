@@ -21,7 +21,7 @@ set noswapfile                "关闭交换文件
 set hidden                    "允许在有未保存的修改时切换缓冲区
 
 "显示
-"colorscheme molokai          "选择配色方案
+
 set t_Co=256                  "可以使用的颜色数目
 set number                    "显示行号
 set laststatus=2              "显示状态行
@@ -35,11 +35,13 @@ set incsearch                "边检索边显示匹配
 set go-=T                    "去除gvim的toolbar
 
 "格式
-"set noexpandtab              "不要将tab转换为空格
+set expandtab              	  "将tab转换为空格
 set shiftwidth=4              "自动缩进的距离,也是平移字符的距离
 set tabstop=4                "tab键对应的空格数
 set autoindent                "自动缩进
 set smartindent              "智能缩进
+set list
+set listchars=tab:>>,trail:•
 
 filetype off                  " required
 
@@ -53,6 +55,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'spf13/vim-colors'
 Plugin 'L9'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'scrooloose/nerdtree'
@@ -81,6 +85,7 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+colorscheme molokai          "选择配色方案
 
 "-----NERDTree-----
 let g:NERDTreeCaseSensitiveSort = 1
