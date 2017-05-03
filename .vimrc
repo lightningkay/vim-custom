@@ -1,5 +1,5 @@
 "文件搜索路径
-set path=.,/usr/include,,
+set path=.,/usr/include/*,,
 
 " 控制
 set nocompatible              "关闭vi兼容
@@ -60,7 +60,11 @@ Plugin 'spf13/vim-colors'
 Plugin 'L9'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'scrooloose/nerdtree'
-Plugin 'Lokaltog/vim-powerline.git'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'scrooloose/nerdcommenter'
+"Plugin 'Lokaltog/vim-powerline.git'
 Plugin 'wincent/command-t'
 Plugin 'tomtom/tlib_vim'
 Plugin 'tomtom/viki_vim'
@@ -91,13 +95,36 @@ colorscheme molokai          "选择配色方案
 let g:NERDTreeCaseSensitiveSort = 1
 let g:NERDTreeWinSize = 25
 let g:NERDTreeWinPos = "right"
+let g:NERDTreeQuitOnOpen=1
 nnoremap <silent> <Leader>t :NERDTreeToggle<CR>
 nnoremap <silent> <Leader>o :NERDTreeFind<CR>
 
 "-----Powerline-----
-set fillchars+=stl:\ ,stlnc:\
-let g:Powerline_symbols = 'compatible'
-let g:Powerline_stl_path_style = 'filename'  "只显示文件名
+"set fillchars+=stl:\ ,stlnc:\
+"let g:Powerline_symbols = 'compatible'
+"let g:Powerline_stl_path_style = 'filename'  "只显示文件名
+
+"-----Airline-------
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+
+
+" ---------ctrlp--------- 
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_switch_buffer = 'et'
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\.git$\|\.hg$\|\.svn$',
+    \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
+let g:ctrlp_user_command = {
+    \ 'types': {
+        \ 1 : ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others'],
+        \ 2: ['.hg', 'hg --cwd  %s locate -I .'],
+    \ }
+\ }
+
 
 "-----Command-T-----
 let g:CommandTFileScanner = 'ruby'  "使用ruby作为文件浏览器
