@@ -156,17 +156,28 @@ let Tlist_Auto_Update = 1              "自动更新
 " 打开标签浏览器
 nnoremap <silent><Leader>dt :Tlist<CR>
 " 重新生成标签
-nnoremap <silent><Leader>bt :!~/Myfiles/Tool/sh/ctags/hitags.sh<CR>
+"nnoremap <silent><Leader>bt :!~/Myfiles/Tool/sh/ctags/hitags.sh<CR>
 " 高亮标签
-nnoremap <silent><Leader>ht :so tags.vim<CR>
+"nnoremap <silent><Leader>ht :so tags.vim<CR>
 
 "-----cscope-----
 "加载cscope库
-if filereadable("cscope.out")
-    cs add cscope.out
+if has("cscope")
+    set csprg=/usr/local/bin/cscope
+    set csto=0
+    set cst
+    set nocsverb
+    " add any database in current directory
+    if filereadable("cscope.out")
+        cs add cscope.out
+        " else add database pointed to by environment
+    elseif $CSCOPE_DB != ""
+        cs add $CSCOPE_DB
+    endif
+    set csverb
 endif
+
 set cscopequickfix=s-,c-,d-,i-,t-,e- "使用quickfix窗口显示结果
-set cst                              "跳转时也使用cscope库
 "打开引用窗口
 nnoremap <silent><Leader>cw :cw<CR>
 "重新生成索引文件
