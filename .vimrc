@@ -163,7 +163,8 @@ nnoremap <silent><Leader>dt :Tlist<CR>
 "-----cscope-----
 "加载cscope库
 if has("cscope")
-    set csprg=/usr/local/bin/cscope
+    "set csprg=/usr/local/bin/cscope
+    set csprg=/usr/bin/cscope
     set csto=0
     set cst
     set nocsverb
