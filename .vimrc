@@ -41,7 +41,7 @@ set tabstop=4                "tab键对应的空格数
 set autoindent                "自动缩进
 set smartindent              "智能缩进
 set list
-set listchars=tab:>>,trail:•
+set listchars=tab:>-,trail:•
 
 filetype off                  " required
 
