@@ -92,6 +92,9 @@ if isdirectory(expand("~/.vim/bundle/vim-colors"))
     colorscheme molokai          "选择配色方案
 endif
 
+" NERDCommenter
+let g:NERDSpaceDelims = 1
+
 "-----NERDTree-----
 let g:NERDTreeCaseSensitiveSort = 1
 let g:NERDTreeWinSize = 25
