@@ -18,11 +18,6 @@ function install_fonts_on_linux()
     cp ./fonts/10-powerline-symbols.conf ~/.config/fontconfig/conf.d
 }
 
-if  [ ! -d ~/.vim/bundle/Vundle.vim ]; then
-    echo "Vundle no exist"
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-fi
-
 rm -rf ~/.vimrc
 cp .vimrc ~
 rm -rf ~/.vim
@@ -31,6 +26,11 @@ cp -R ./plugin ~/.vim
 rm -rf ~/.vim/colors
 cp -R ./colors ~/.vim
 cp ./.vimrc ~/
+
+if  [ ! -d ~/.vim/bundle/Vundle.vim ]; then
+    echo "Vundle no exist"
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+fi
 
 install_fonts_on_linux
 
