@@ -16,7 +16,7 @@ set noeb
 " 告诉我们文件的哪一行被改变过
 set report=0
 " 可以在buffer的任何地方使用鼠标
-set mouse=a
+"set mouse=a
 set selection=exclusive
 set selectmode=mouse,key
 
@@ -218,7 +218,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-scripts/a.vim'
 Plugin 'vim-scripts/DoxygenToolkit.vim'
 Plugin 'vim-scripts/txt.vim'
-Plugin 'ryanoasis/vim-devicons'
+"Plugin 'ryanoasis/vim-devicons'
 Plugin 'gorodinskiy/vim-coloresque'
 Plugin 'will133/vim-dirdiff'
 Plugin 'mhinz/vim-startify'
@@ -244,7 +244,7 @@ imap <Leader>n <ESC> :NERDTreeToggle<CR>
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " Doxygen
-let g:DoxygenToolkit_authorName="chxuan, 787280310@qq.com"
+let g:DoxygenToolkit_authorName="lightningkay, 312019837@qq.com"
 let s:licenseTag = "Copyright(C)\<enter>"
 let s:licenseTag = s:licenseTag . "For free\<enter>"
 let s:licenseTag = s:licenseTag . "All right reserved\<enter>"
@@ -283,9 +283,9 @@ let g:cpp_experimental_template_highlight = 1
 let c_no_curly_error = 1
 
 " airline
-let g:airline_theme="luna"
-" let g:airline_theme="badwolf"
-let g:airline_powerline_fonts = 1
+"let g:airline_theme="luna"
+"let g:airline_theme="badwolf"
+"let g:airline_powerline_fonts = 1
 "let g:airline_section_b = '%{strftime("%c")}'
 "let g:airline_section_y = 'BN: %{bufnr("%")}'
 let g:airline#extensions#tabline#enabled = 1
@@ -294,10 +294,10 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
+"let g:airline_left_sep = ''
+"let g:airline_left_alt_sep = ''
+"let g:airline_right_sep = ''
+"let g:airline_right_alt_sep = ''
 nnoremap <C-N> :bn<CR>
 nnoremap <C-M> :bp<CR>
 
