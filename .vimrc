@@ -258,7 +258,7 @@ let g:DoxygenToolkit_commentType="Qt"
 set tags+=/usr/include/tags
 set tags+=~/.vim/systags
 set tags+=~/.vim/x86_64-linux-gnu-systags
-set tags+=.;
+set tags+=tags;
 
 " a.vim: .h -> .cpp or .cpp -> .h
 nnoremap <silent> <Leader>a :A<CR>
