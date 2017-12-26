@@ -17,7 +17,8 @@ set noeb
 set report=0
 " 可以在buffer的任何地方使用鼠标
 "set mouse=a
-set selection=exclusive
+" 复制时不包括光标
+" set selection=exclusive
 set selectmode=mouse,key
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
