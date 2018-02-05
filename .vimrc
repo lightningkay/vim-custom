@@ -96,7 +96,7 @@ set smarttab
 " 历史文件中需要记录的行数
 set history=1000
 " 禁止折行
-set nowrap
+"set nowrap
 " 使用回格键正常处理indent,eol,start等
 set backspace=2
 
