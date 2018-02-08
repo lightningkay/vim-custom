@@ -1,4 +1,5 @@
 "文件搜索路径
+let mapleader = ","
 set path=.,/usr/include/*,,
 
 " 控制
@@ -100,7 +101,7 @@ let g:NERDTreeCaseSensitiveSort = 1
 let g:NERDTreeWinSize = 25
 let g:NERDTreeWinPos = "right"
 let g:NERDTreeQuitOnOpen=1
-nnoremap <silent> <Leader>t :NERDTreeToggle<CR>
+nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
 nnoremap <silent> <Leader>o :NERDTreeFind<CR>
 
 "-----Powerline-----
