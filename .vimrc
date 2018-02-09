@@ -31,7 +31,7 @@ syntax on
 " 开启256色支持，默认是8色
 set t_Co=256
 " 命令行显示输入的命令
-set showcmd         
+set showcmd
 " 命令行的高度
 set cmdheight=1
 " 命令行显示vim当前模式
@@ -41,15 +41,15 @@ set laststatus=2
 " 开启行号显示
 set number
 " 显示光标当前位置
-set ruler           
+set ruler
 " 高亮显示当前行/列
 set cursorline
 " set cursorcolumn
 " 用浅色高亮当前行
-autocmd InsertEnter * se cul    
+autocmd InsertEnter * se cul
 " 禁止显示菜单和工具条
-set guioptions-=T           
-set guioptions-=m           
+set guioptions-=T
+set guioptions-=m
 " 禁止显示滚动条
 set guioptions-=l
 set guioptions-=L
@@ -100,6 +100,9 @@ set history=1000
 " 使用回格键正常处理indent,eol,start等
 set backspace=2
 
+set list
+set listchars=tab:>-,trail:•
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 搜索设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -110,7 +113,7 @@ set incsearch
 " 搜索时大小写不敏感
 set ignorecase
 " 设置魔术
-set magic                   
+set magic
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 代码折叠
@@ -157,34 +160,30 @@ set fileencodings=utf8,ucs-bom,gbk,cp936,gb2312,gb18030
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 新建文件设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd BufNewFile *.cpp,*.cc,*.c,*.hpp,*.h,*.sh,*.py exec ":call SetTitle()" 
-func SetTitle() 
-	if expand("%:e") == 'sh'
-		call setline(1,"\#!/bin/bash") 
-		call append(line("."), "") 
+autocmd BufNewFile *.cpp,*.cc,*.c,*.hpp,*.h,*.sh,*.py exec ":call SetTitle()"
+func SetTitle()
+    if expand("%:e") == 'sh'
+        call setline(1,"\#!/bin/bash")
+        call append(line("."), "")
     elseif expand("%:e") == 'py'
         call setline(1,"#!/usr/bin/env python")
         call append(line("."),"# coding=utf-8")
-	    call append(line(".")+1, "") 
+        call append(line(".")+1, "")
     elseif expand("%:e") == 'cpp'
-		call setline(1,"#include <iostream>") 
-		call append(line("."), "") 
+        call setline(1,"#include <iostream>")
+        call append(line("."), "")
     elseif expand("%:e") == 'cc'
-		call setline(1,"#include <iostream>") 
-		call append(line("."), "") 
+        call setline(1,"#include <iostream>")
+        call append(line("."), "")
     elseif expand("%:e") == 'c'
-		call setline(1,"#include <stdio.h>") 
-		call append(line("."), "") 
-    elseif expand("%:e") == 'h'
-		call setline(1, "#pragma once")
-    elseif expand("%:e") == 'hpp'
-		call setline(1, "#pragma once")
-	endif
-endfunc 
+        call setline(1,"#include <stdio.h>")
+        call append(line("."), "")
+    endif
+endfunc
 autocmd BufNewFile * normal G
 
 " Vundle
-filetype off        
+filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -224,8 +223,8 @@ Plugin 'gorodinskiy/vim-coloresque'
 Plugin 'will133/vim-dirdiff'
 Plugin 'mhinz/vim-startify'
 
-call vundle#end()            
-filetype plugin indent on    
+call vundle#end()
+filetype plugin indent on
 
 " load vim default plugin
 runtime macros/matchit.vim
@@ -241,6 +240,7 @@ imap <F9> <ESC> :PreviousColorScheme<CR>
 " nmap <Leader>L <Plug>(easymotion-overwin-line)
 map <Leader>n :NERDTreeToggle<CR>
 imap <Leader>n <ESC> :NERDTreeToggle<CR>
+let g:NERDTreeWinPos="right"
 "autocmd vimenter * if !argc() | NERDTree | endif
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
@@ -276,8 +276,8 @@ imap <Leader>t <ESC> :TagbarToggle<CR>
 " colorscheme
 set background=dark
 let g:solarized_termcolors=256
-colorscheme solarized
-"colorscheme monokai
+colorscheme monokai
+"colorscheme solarized
 
 " cpp_class_scope_highlight
 let g:cpp_class_scope_highlight = 1
@@ -285,21 +285,21 @@ let g:cpp_experimental_template_highlight = 1
 let c_no_curly_error = 1
 
 " airline
-"let g:airline_theme="luna"
-"let g:airline_theme="badwolf"
-"let g:airline_powerline_fonts = 1
-"let g:airline_section_b = '%{strftime("%c")}'
-"let g:airline_section_y = 'BN: %{bufnr("%")}'
+let g:airline_theme="luna"
+let g:airline_theme="badwolf"
+let g:airline_powerline_fonts = 1
+let g:airline_section_b = '%{strftime("%c")}'
+let g:airline_section_y = 'BN: %{bufnr("%")}'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
-"let g:airline_left_sep = ''
-"let g:airline_left_alt_sep = ''
-"let g:airline_right_sep = ''
-"let g:airline_right_alt_sep = ''
+let g:airline_left_sep = '>'
+let g:airline_left_alt_sep = '>'
+let g:airline_right_sep = '<'
+let g:airline_right_alt_sep = '<'
 nnoremap <C-N> :bn<CR>
 nnoremap <C-M> :bp<CR>
 
