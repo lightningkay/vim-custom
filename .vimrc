@@ -270,6 +270,7 @@ nnoremap <silent> <Leader>a :A<CR>
 " let g:tagbar_ctags_bin = '/usr/bin/ctags' "linux
 " let g:tagbar_ctags_bin = '/usr/local/bin/ctags' "mac
 let g:tagbar_width = 30
+let g:tagbar_left = 1
 map <Leader>t :TagbarToggle<CR>
 imap <Leader>t <ESC> :TagbarToggle<CR>
 
