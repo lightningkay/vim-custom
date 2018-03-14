@@ -1,56 +1,57 @@
-"文件搜索路径
+" 文件搜索路径
 let mapleader = ","
 set path=.,/usr/include/*,,
 
 " 控制
-set nocompatible              "关闭vi兼容
-filetype off                  "关闭文件类型侦测,vundle需要
-set fileencodings=utf-8,gbk  "使用utf-8或gbk编码方式
-syntax on                    "语法高亮
-set backspace=2              "退格键正常模式
-set whichwrap=<,>,[,]        "当光标到行首或行尾，允许左右方向键换行
-set autoread                  "文件在vim外修改过，自动重载     
-set nobackup                  "不使用备份
-set confirm                  "在处理未保存或只读文件时，弹出确认消息 
-set scrolloff=3              "光标移动到距离顶部或底部开始滚到距离
-set history=1000              "历史记录数
-set mouse=                    "关闭鼠标
-set selection=inclusive      "选择包含最后一个字符
-set selectmode=mouse,key      "启动选择模式的方式
-set completeopt=longest,menu  "智能补全,弹出菜单，无歧义时才自动填充
-set noswapfile                "关闭交换文件
-set hidden                    "允许在有未保存的修改时切换缓冲区
+set nocompatible                " 关闭vi兼容
+filetype off                    " 关闭文件类型侦测,vundle需要
+set fileencodings=utf-8,gbk     " 使用utf-8或gbk编码方式
+syntax on                       " 语法高亮
+set backspace=2                 " 退格键正常模式
+set whichwrap=<,>,[,]           " 当光标到行首或行尾，允许左右方向键换行
+set autoread                    " 文件在vim外修改过，自动重载
+set nobackup                    " 不使用备份
+set confirm                     " 在处理未保存或只读文件时，弹出确认消息
+set scrolloff=3                 " 光标移动到距离顶部或底部开始滚到距离
+set history=1000                " 历史记录数
+set mouse=                      " 关闭鼠标
+set selection=inclusive         " 选择包含最后一个字符
+set selectmode=mouse,key        " 启动选择模式的方式
+set completeopt=longest,menu    " 智能补全,弹出菜单，无歧义时才自动填充
+set noswapfile                  " 关闭交换文件
+set hidden                      " 允许在有未保存的修改时切换缓冲区
+set wrap
 
 "显示
 
-set t_Co=256                  "可以使用的颜色数目
-set number                    "显示行号
-set laststatus=2              "显示状态行
-set ruler                    "显示标尺
-set showcmd                  "显示输入的命令
-set showmatch                "高亮括号匹配
-set matchtime=1              "匹配括号高亮的时间(十分之一秒)
-set matchpairs={:},(:)          "匹配括号"{}""()"   
-set hlsearch                  "检索时高亮匹配项
-set incsearch                "边检索边显示匹配
-set go-=T                    "去除gvim的toolbar
+set t_Co=256                    " 可以使用的颜色数目
+set number                      " 显示行号
+set laststatus=2                " 显示状态行
+set ruler                       " 显示标尺
+set showcmd                     " 显示输入的命令
+set showmatch                   " 高亮括号匹配
+set matchtime=1                 " 匹配括号高亮的时间(十分之一秒)
+set matchpairs={:},(:)          " 匹配括号"{}""()"
+set hlsearch                    " 检索时高亮匹配项
+set incsearch                   " 边检索边显示匹配
+set go-=T                       " 去除gvim的toolbar
 
 "格式
-set expandtab              	  "将tab转换为空格
-set shiftwidth=4              "自动缩进的距离,也是平移字符的距离
-set tabstop=4                "tab键对应的空格数
-set autoindent                "自动缩进
-set smartindent              "智能缩进
+set expandtab                   " 将tab转换为空格
+set shiftwidth=4                " 自动缩进的距离,也是平移字符的距离
+set tabstop=4                   " tab键对应的空格数
+set autoindent                  " 自动缩进
+set smartindent                 " 智能缩进
 set list
 set listchars=tab:>-,trail:•
 
-filetype off                  " required
+filetype off                    " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
@@ -65,8 +66,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdcommenter'
-"Plugin 'Lokaltog/vim-powerline.git'
-Plugin 'wincent/command-t'
+" Plugin 'Lokaltog/vim-powerline.git'
+" Plugin 'wincent/command-t'
 Plugin 'tomtom/tlib_vim'
 Plugin 'tomtom/viki_vim'
 Plugin 'jiangmiao/auto-pairs'
@@ -76,10 +77,10 @@ Plugin 'EasyGrep'
 
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call vundle#end()               " required
+filetype plugin indent on       " required
 " To ignore plugin indent changes, instead use:
-"filetype plugin on
+" filetype plugin on
 "
 " Brief help
 " :PluginList       - lists configured plugins
@@ -90,13 +91,13 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 if isdirectory(expand("~/.vim/bundle/vim-colors"))
-    colorscheme molokai          "选择配色方案
+    colorscheme molokai         " 选择配色方案
 endif
 
 " NERDCommenter
 let g:NERDSpaceDelims = 1
 
-"-----NERDTree-----
+" -----NERDTree-----
 let g:NERDTreeCaseSensitiveSort = 1
 let g:NERDTreeWinSize = 25
 let g:NERDTreeWinPos = "right"
@@ -104,12 +105,12 @@ let g:NERDTreeQuitOnOpen=1
 nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
 nnoremap <silent> <Leader>o :NERDTreeFind<CR>
 
-"-----Powerline-----
-"set fillchars+=stl:\ ,stlnc:\
-"let g:Powerline_symbols = 'compatible'
-"let g:Powerline_stl_path_style = 'filename'  "只显示文件名
+" -----Powerline-----
+" set fillchars+=stl:\ ,stlnc:\
+" let g:Powerline_symbols = 'compatible'
+" let g:Powerline_stl_path_style = 'filename'  " 只显示文件名
 
-"-----Airline-------
+" -----Airline-------
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
@@ -145,27 +146,27 @@ let g:ctrlp_user_command = {
 \ }
 
 
-"-----Command-T-----
-let g:CommandTFileScanner = 'ruby'  "使用ruby作为文件浏览器
-let g:CommandTTraverseSCM = 'dir'    "根目录为执行vim时所在的目录 
-"打开文件跳转
+" -----Command-T-----
+let g:CommandTFileScanner = 'ruby'      " 使用ruby作为文件浏览器
+let g:CommandTTraverseSCM = 'dir'       " 根目录为执行vim时所在的目录 
+" 打开文件跳转
 nnoremap <silent> <Leader>f :CommandT<CR>
 
-"-----taglist-----
-let Tlist_Show_One_File = 1          "只显示当前文件的taglist
-let Tlist_Exit_OnlyWindow = 1        "taglist是最后一个窗口时退出vim
-let Tlist_Use_Left_Window = 1        "在左侧窗口显示taglist
-let Tlist_GainFocus_On_ToggleOpen = 1 "打开taglist时，光标停在taglist窗口
-let Tlist_Auto_Update = 1              "自动更新
+" -----taglist-----
+let Tlist_Show_One_File = 1             " 只显示当前文件的taglist
+let Tlist_Exit_OnlyWindow = 1           " taglist是最后一个窗口时退出vim
+let Tlist_Use_Left_Window = 1           " 在左侧窗口显示taglist
+let Tlist_GainFocus_On_ToggleOpen = 1   " 打开taglist时，光标停在taglist窗口
+let Tlist_Auto_Update = 1               " 自动更新
 " 打开标签浏览器
 nnoremap <silent><Leader>dt :Tlist<CR>
 " 重新生成标签
-"nnoremap <silent><Leader>bt :!~/Myfiles/Tool/sh/ctags/hitags.sh<CR>
+" nnoremap <silent><Leader>bt :!~/Myfiles/Tool/sh/ctags/hitags.sh<CR>
 " 高亮标签
-"nnoremap <silent><Leader>ht :so tags.vim<CR>
+" nnoremap <silent><Leader>ht :so tags.vim<CR>
 
-"-----cscope-----
-"加载cscope库
+" -----cscope-----
+" 加载cscope库
 if has("cscope")
     "set csprg=/usr/local/bin/cscope
     set csprg=/usr/bin/cscope
@@ -182,19 +183,19 @@ if has("cscope")
     set csverb
 endif
 
-set cscopequickfix=s-,c-,d-,i-,t-,e- "使用quickfix窗口显示结果
-"打开引用窗口
+set cscopequickfix=s-,c-,d-,i-,t-,e-        " 使用quickfix窗口显示结果
+" 打开引用窗口
 nnoremap <silent><Leader>cw :cw<CR>
-"重新生成索引文件
+" 重新生成索引文件
 nnoremap <silent><Leader>bc :!cscope -Rbq<CR>
-"s: 查找本C符号
-"g: 查找本定义
-"d: 查找本函数调用的函数
-"c: 查找调用本函数的函数
-"t: 查找本字符串
-"e: 查找本egrep模式
-"f: 查找本文件
-"i: 查找包含本文件的文件
+" s: 查找本C符号
+" g: 查找本定义
+" d: 查找本函数调用的函数
+" c: 查找调用本函数的函数
+" t: 查找本字符串
+" e: 查找本egrep模式
+" f: 查找本文件
+" i: 查找包含本文件的文件
 nnoremap <C-\>s :scs find s <C-R>=expand("<cword>")<CR><CR>
 nnoremap <C-\>g :scs find g <C-R>=expand("<cword>")<CR><CR>
 nnoremap <C-\>c :scs find c <C-R>=expand("<cword>")<CR><CR>
@@ -204,8 +205,8 @@ nnoremap <C-\>f :scs find f <C-R>=expand("<cfile>")<CR><CR>
 nnoremap <C-\>i :scs find i <C-R>=expand("<cfile>")<CR><CR>
 nnoremap <C-\>d :scs find d <C-R>=expand("<cword>")<CR><CR>
 
-"-----EasyGrep-----
-let EasyGrepMode = 2        "根据文件类型搜索相应文件
-let EasyGrepRecursive = 1  "递归搜索
-let EasyGrepCommand = 1    "使用grep
-let EasyGrepJumpToMatch = 0 "不要跳转
+" -----EasyGrep-----
+let EasyGrepMode = 2            " 根据文件类型搜索相应文件
+let EasyGrepRecursive = 1       " 递归搜索
+let EasyGrepCommand = 1         " 使用grep
+let EasyGrepJumpToMatch = 0     " 不要跳转
