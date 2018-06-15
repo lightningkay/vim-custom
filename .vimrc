@@ -222,6 +222,7 @@ Plugin 'vim-scripts/txt.vim'
 Plugin 'gorodinskiy/vim-coloresque'
 Plugin 'will133/vim-dirdiff'
 Plugin 'mhinz/vim-startify'
+Plugin 'EasyGrep'
 
 call vundle#end()
 filetype plugin indent on
@@ -260,6 +261,51 @@ set tags+=/usr/include/tags
 set tags+=~/.vim/systags
 set tags+=~/.vim/x86_64-linux-gnu-systags
 set tags+=tags;
+
+" cscope
+if has("cscope")
+    "set csprg=/usr/local/bin/cscope
+    set csprg=/usr/bin/cscope
+    set csto=0
+    set cst
+    set nocsverb
+    " add any database in current directory
+    if filereadable("cscope.out")
+        cs add cscope.out
+        " else add database pointed to by environment
+    elseif $CSCOPE_DB != ""
+        cs add $CSCOPE_DB
+    endif
+    set csverb
+endif
+
+set cscopequickfix=s-,c-,d-,i-,t-,e-        " 使用quickfix窗口显示结果
+" 打开引用窗口
+nnoremap <silent><Leader>cw :cw<CR>
+" 重新生成索引文件
+nnoremap <silent><Leader>bc :!cscope -Rbq<CR>
+" s: 查找本C符号
+" g: 查找本定义
+" d: 查找本函数调用的函数
+" c: 查找调用本函数的函数
+" t: 查找本字符串
+" e: 查找本egrep模式
+" f: 查找本文件
+" i: 查找包含本文件的文件
+nnoremap <C-\>s :scs find s <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-\>g :scs find g <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-\>c :scs find c <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-\>t :scs find t <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-\>e :scs find e <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-\>f :scs find f <C-R>=expand("<cfile>")<CR><CR>
+nnoremap <C-\>i :scs find i <C-R>=expand("<cfile>")<CR><CR>
+nnoremap <C-\>d :scs find d <C-R>=expand("<cword>")<CR><CR>
+
+" -----EasyGrep-----
+let EasyGrepMode = 2            " 根据文件类型搜索相应文件
+let EasyGrepRecursive = 1       " 递归搜索
+let EasyGrepCommand = 1         " 使用grep
+let EasyGrepJumpToMatch = 0     " 不要跳转
 
 " a.vim: .h -> .cpp or .cpp -> .h
 nnoremap <silent> <Leader>a :A<CR>
