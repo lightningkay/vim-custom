@@ -226,6 +226,7 @@ Plugin 'mhinz/vim-startify'
 Plugin 'EasyGrep'
 
 call vundle#end()
+
 filetype plugin indent on
 
 " load vim default plugin
@@ -245,6 +246,9 @@ imap <Leader>n <ESC> :NERDTreeToggle<CR>
 let g:NERDTreeWinPos="right"
 "autocmd vimenter * if !argc() | NERDTree | endif
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" NERDCommenter
+let g:NERDSpaceDelims=1
 
 " Doxygen
 let g:DoxygenToolkit_authorName="lightningkay, 312019837@qq.com"
