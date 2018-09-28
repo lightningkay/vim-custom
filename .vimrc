@@ -219,12 +219,13 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-scripts/a.vim'
 Plugin 'vim-scripts/DoxygenToolkit.vim'
 Plugin 'vim-scripts/txt.vim'
-"Plugin 'ryanoasis/vim-devicons'
+" Plugin 'ryanoasis/vim-devicons'
 Plugin 'gorodinskiy/vim-coloresque'
 Plugin 'will133/vim-dirdiff'
 Plugin 'mhinz/vim-startify'
 Plugin 'EasyGrep'
 Plugin 'fatih/vim-go'
+" Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 
