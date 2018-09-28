@@ -224,6 +224,7 @@ Plugin 'gorodinskiy/vim-coloresque'
 Plugin 'will133/vim-dirdiff'
 Plugin 'mhinz/vim-startify'
 Plugin 'EasyGrep'
+Plugin 'fatih/vim-go'
 
 call vundle#end()
 
