@@ -1,5 +1,5 @@
 #!/bin/bash
-PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+PS1='\[\e[36;3m\]\u@\h\[\e[0m\]:\[\e[35m\]\w\[\e[0m\]\$ '
 
 if  [ ! -d ~/.vim/bundle/Vundle.vim ]; then
     echo "Vundle no exist"
