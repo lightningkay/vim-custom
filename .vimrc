@@ -187,47 +187,47 @@ autocmd BufNewFile * normal G
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" vundle 管理的插件列表必须位于vundle#begin()和vundle#end()之间
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'L9'
-Plugin 'chxuan/change-colorscheme'
-Plugin 'Yggdroot/indentLine'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'haya14busa/incsearch.vim'
-Plugin 'wsdjeg/FlyGrep.vim'
-Plugin 'iamcco/mathjax-support-for-mkdp'
-Plugin 'iamcco/markdown-preview.vim'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-Plugin 'rkulla/pydiction'
-Plugin 'Valloric/MatchTagAlways'
-Plugin 'docunext/closetag.vim'
-Plugin 'godlygeek/tabular'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-endwise'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'vim-scripts/a.vim'
-Plugin 'vim-scripts/DoxygenToolkit.vim'
-Plugin 'vim-scripts/txt.vim'
+
+call plug#begin()
+
+Plug 'chxuan/change-colorscheme'
+Plug 'Yggdroot/indentLine'
+Plug 'easymotion/vim-easymotion'
+Plug 'haya14busa/incsearch.vim'
+Plug 'wsdjeg/FlyGrep.vim'
+Plug 'iamcco/mathjax-support-for-mkdp'
+
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
+Plug 'jiangmiao/auto-pairs'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plug 'rkulla/pydiction'
+Plug 'Valloric/MatchTagAlways'
+Plug 'docunext/closetag.vim'
+Plug 'godlygeek/tabular'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-endwise'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'majutsushi/tagbar'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-scripts/a.vim'
+Plug 'vim-scripts/DoxygenToolkit.vim'
+Plug 'vim-scripts/txt.vim'
 " Plugin 'ryanoasis/vim-devicons'
-Plugin 'gorodinskiy/vim-coloresque'
-Plugin 'will133/vim-dirdiff'
-Plugin 'mhinz/vim-startify'
-Plugin 'EasyGrep'
-Plugin 'fatih/vim-go'
+Plug 'gorodinskiy/vim-coloresque'
+Plug 'will133/vim-dirdiff'
+Plug 'mhinz/vim-startify'
+Plug 'fatih/vim-go'
 " Plugin 'Valloric/YouCompleteMe'
 
-call vundle#end()
+call plug#end()
 
 filetype plugin indent on
 
@@ -307,12 +307,6 @@ nnoremap <C-\>e :scs find e <C-R>=expand("<cword>")<CR><CR>
 nnoremap <C-\>f :scs find f <C-R>=expand("<cfile>")<CR><CR>
 nnoremap <C-\>i :scs find i <C-R>=expand("<cfile>")<CR><CR>
 nnoremap <C-\>d :scs find d <C-R>=expand("<cword>")<CR><CR>
-
-" -----EasyGrep-----
-let EasyGrepMode = 2            " 根据文件类型搜索相应文件
-let EasyGrepRecursive = 1       " 递归搜索
-let EasyGrepCommand = 1         " 使用grep
-let EasyGrepJumpToMatch = 0     " 不要跳转
 
 " a.vim: .h -> .cpp or .cpp -> .h
 nnoremap <silent> <Leader>a :A<CR>

@@ -3,35 +3,32 @@
 function install_fonts_on_linux()
 {
     mkdir ~/.fonts
-
-    rm -rf ~/.fonts/PowerlineSymbols.otf
-    cp ./fonts/PowerlineSymbols.otf ~/.fonts
-
-    rm -rf ~/.fonts/Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete.otf
-    cp ./fonts/Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete.otf ~/.fonts
-
-    fc-cache -vf ~/.fonts
-
     mkdir -p ~/.config/fontconfig/conf.d
 
+    rm -rf ~/.fonts/PowerlineSymbols.otf
+    rm -rf ~/.fonts/Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete.otf
     rm -rf ~/.config/fontconfig/conf.d/10-powerline-symbols.conf
+
+    cp ./fonts/PowerlineSymbols.otf ~/.fonts
+    cp ./fonts/Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete.otf ~/.fonts
     cp ./fonts/10-powerline-symbols.conf ~/.config/fontconfig/conf.d
+
+    fc-cache -vf ~/.fonts
 }
 
 rm -rf ~/.vimrc
-cp .vimrc ~
 rm -rf ~/.vim
-mkdir ~/.vim
-cp -R ./plugin ~/.vim
-rm -rf ~/.vim/colors
-cp -R ./colors ~/.vim
-cp ./.vimrc ~/
 
-if  [ ! -d ~/.vim/bundle/Vundle.vim ]; then
-    echo "Vundle no exist"
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+mkdir ~/.vim
+cp .vimrc ~/
+cp -r ./colors ~/.vim
+
+if  [ ! -f ~/.vim/autoload/plug.vim ]; then
+    echo "vim-plug no exist"
+    mkdir -p ~/.vim/autoload
+    wget -O ~/.vim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
 install_fonts_on_linux
 
-vim -c BundleInstall
+vim -c PluginInstall
